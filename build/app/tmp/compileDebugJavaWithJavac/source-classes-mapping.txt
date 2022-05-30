@@ -1,0 +1,6 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/rishabh/covid_19/MainActivity.java
+ com.rishabh.covid_19.MainActivity
+com/rishabh/covid_19/BuildConfig.java
+ com.rishabh.covid_19.BuildConfig

@@ -1,0 +1,4 @@
+#Mon May 30 23:41:43 IST 2022
+base.0=D\:\\Drive E\\android studio\\Covid-Informer\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
