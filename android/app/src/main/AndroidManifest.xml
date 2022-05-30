@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rishabh.covid_19">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="covid_19"
         android:icon="@mipmap/ic_launcher">

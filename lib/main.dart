@@ -1,3 +1,4 @@
+import 'package:covid_19/components/details.dart';
 import 'package:covid_19/components/network.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -39,10 +40,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
   int lst = 10;
+  int infected=0;
+  int deaths=0;
+  int reco=0;
 
-  String country="Select";
+  String country="Global";
   List<String> countrylist=[
-    'Select',
+    'Global',
 
   ];
 
@@ -60,8 +64,33 @@ class _HomeScreenState extends State<HomeScreen> {
           countrylist.add(data["Countries"][i]["Country"]);
         });
       }
+    setState(() {
+      infected = data["Global"]["TotalConfirmed"];
+      deaths = data["Global"]["TotalDeaths"];
+      reco = infected-deaths;
+    });
+
     print(data["Countries"].length);
     //return weatherData;
+  }
+
+  void caseupdate(String cntryname) async{
+
+    NetworkHelper networkhelper=NetworkHelper("https://api.covid19api.com/summary");
+    var data=await networkhelper.getData();
+    int i;
+    for(i=0;i<lst;i++)
+      {
+        if(data["Countries"][i]["Country"] == cntryname)
+          break;
+      }
+    setState(() {
+      infected = data["Countries"][i]["TotalConfirmed"];
+      deaths = data["Countries"][i]["TotalDeaths"];
+      reco = infected-deaths;
+    });
+
+
   }
 
   @override
@@ -115,6 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         onChanged: (value) {
                           setState(() {
                             country = value.toString();
+                            caseupdate(country);
                             print(country);
                           });
                         },
@@ -147,11 +177,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                       Spacer(),
-                      Text(
-                        "See details",
-                        style: TextStyle(
-                          color: kPrimaryColor,
-                          fontWeight: FontWeight.w600,
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) =>  DetailWeb(
+                                url: "https://www.worldometers.info/coronavirus/"
+                            )),
+                          );
+                        },
+                        child: Text(
+                          "See details",
+                          style: TextStyle(
+                            color: kPrimaryColor,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                 ],
@@ -175,17 +215,17 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: <Widget>[
                         Counter(
                           color: kInfectedColor,
-                          number: 1046,
+                          number: infected,
                           title: "Infected",
                         ),
                         Counter(
                           color: kDeathColor,
-                          number: 87,
+                          number: deaths,
                           title: "Deaths",
                         ),
                         Counter(
                           color: kRecovercolor,
-                          number: 46,
+                          number: reco,
                           title: "Recovered",
                         ),
                       ],
@@ -199,11 +239,21 @@ class _HomeScreenState extends State<HomeScreen> {
                         "Spread of Virus",
                         style: kTitleTextstyle,
                       ),
-                      Text(
-                        "See details",
-                        style: TextStyle(
-                          color: kPrimaryColor,
-                          fontWeight: FontWeight.w600,
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) =>  DetailWeb(
+                                url: "https://coronavirus.jhu.edu/map.html"
+                            )),
+                          );
+                        },
+                        child: Text(
+                          "See details",
+                          style: TextStyle(
+                            color: kPrimaryColor,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                     ],

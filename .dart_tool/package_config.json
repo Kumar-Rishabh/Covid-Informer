@@ -230,6 +230,30 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "webview_flutter",
+      "rootUri": "file:///D:/installed%20softwares/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter-3.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "webview_flutter_android",
+      "rootUri": "file:///D:/installed%20softwares/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter_android-2.8.9",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "webview_flutter_platform_interface",
+      "rootUri": "file:///D:/installed%20softwares/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter_platform_interface-1.9.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "webview_flutter_wkwebview",
+      "rootUri": "file:///D:/installed%20softwares/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter_wkwebview-2.8.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "xml",
       "rootUri": "file:///D:/installed%20softwares/flutter/.pub-cache/hosted/pub.dartlang.org/xml-5.1.2",
       "packageUri": "lib/",
@@ -242,7 +266,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-05-28T19:09:45.648397Z",
+  "generated": "2022-05-30T19:24:07.502238Z",
   "generator": "pub",
   "generatorVersion": "2.17.0"
 }
