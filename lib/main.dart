@@ -244,7 +244,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) =>  DetailWeb(
-                                url: "https://coronavirus.jhu.edu/map.html"
+                                url: "https://covid19.who.int/"
                             )),
                           );
                         },
